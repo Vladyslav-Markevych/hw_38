@@ -95,11 +95,14 @@ function previewMediaInfo() {
   function getMediaInfo(event) {
     // console.log('event.target.tagName', event.target.tagName === "LI")
     const item = event.target.matches(".preview-item");
-    console.log(event);
-    console.log(event.target);
-    console.log(event.currentTarget);
-    if (item) {
+    const notFound = event.target.matches(".notFound");
+    const itemUp = event.target.closest(".preview-item");
+    if (item && !notFound) {
       const id = event.target.dataset.id;
+      history.pushState(null, null, `/media?id=${id}`);
+      renderMediaPage();
+    } else if (itemUp && !notFound) {
+      const id = itemUp.dataset.id;
       history.pushState(null, null, `/media?id=${id}`);
       renderMediaPage();
     }

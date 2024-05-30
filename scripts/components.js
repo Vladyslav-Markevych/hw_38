@@ -8,21 +8,20 @@ const createPreviewItem = ({ poster, title, year, id }) => `
             ${year}
         </span>
     </li>
-`
-
+`;
 
 const createTile = ({ poster, title, year, id }) => `
     <div data-id="${id}" class="movie-card">
         <img src="${poster}"></img>
         <h3>${title} (${year})</h3>
     </div>
-`
+`;
 
-const movieNotFound = "<li class='preview-item'>Movie wasn't found</li>"
-
+const movieNotFound =
+  "<li class='preview-item notFound'>Movie wasn't found</li>";
 
 const renderMainComponent = () => {
-    document.getElementById('app').innerHTML = `
+  document.getElementById("app").innerHTML = `
 <div class="container">
     <aside class="filters">
         <h2>Filters</h2>
@@ -59,11 +58,18 @@ const renderMainComponent = () => {
         <div id="posters" class="results-container"></div>
     </main>
 </div>    
-    `
-}
+    `;
+};
 
-const renderMediaInfo = ({title, released, country, actors, plot, poster}) => {
-    document.getElementById('app').innerHTML = `
+const renderMediaInfo = ({
+  title,
+  released,
+  country,
+  actors,
+  plot,
+  poster,
+}) => {
+  document.getElementById("app").innerHTML = `
     <head>Header</head>
     <main>
         <img src="${poster}" alt="poster for ${title}">
@@ -74,18 +80,18 @@ const renderMediaInfo = ({title, released, country, actors, plot, poster}) => {
         <p>Description: ${plot}</p>
     </main>
     <button id="back-to-home">Back</button>
-`
-}
+`;
+};
 
 const renderNotFound = () => {
-    return document.getElementById('app').innerHTML = movieNotFound;
-}
+  return (document.getElementById("app").innerHTML = movieNotFound);
+};
 
 export {
-    createPreviewItem,
-    createTile,
-    movieNotFound,
-    renderMainComponent,
-    renderMediaInfo,
-    renderNotFound,
+  createPreviewItem,
+  createTile,
+  movieNotFound,
+  renderMainComponent,
+  renderMediaInfo,
+  renderNotFound,
 };
