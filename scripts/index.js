@@ -90,22 +90,28 @@ function app() {
 
 function previewMediaInfo() {
   const previewList = document.getElementById("preview-list");
-  previewList.addEventListener("click", getMediaInfo);
+  const previewMainList = document.getElementById("posters");
+  previewList.addEventListener("click", getMediaInfo(".preview-item"));
+  previewMainList.addEventListener("click", getMediaInfo(".movie-card"));
+}
 
-  function getMediaInfo(event) {
-    // console.log('event.target.tagName', event.target.tagName === "LI")
-    const item = event.target.matches(".preview-item");
-    const notFound = event.target.matches(".notFound");
-    const itemUp = event.target.closest(".preview-item");
-    if (item && !notFound) {
-      const id = event.target.dataset.id;
-      history.pushState(null, null, `/media?id=${id}`);
-      renderMediaPage();
-    } else if (itemUp && !notFound) {
-      const id = itemUp.dataset.id;
-      history.pushState(null, null, `/media?id=${id}`);
-      renderMediaPage();
-    }
+function getMediaInfo(param) {
+  return function (event) {
+    getMediaInfoUpdate(event, param);
+  };
+}
+
+function getMediaInfoUpdate(event, param) {
+  const item = event.target.matches(param);
+  const notFound = event.target.matches(".notFound");
+  const itemUp = event.target.closest(param);
+  if (item && !notFound) {
+    const id = event.target.dataset.id;
+    history.pushState(null, null, `/media?id=${id}`);
+    renderMediaPage();
+  } else if (itemUp && !notFound) {
+    history.pushState(null, null, `/media?id=${itemUp.dataset.id}`);
+    renderMediaPage();
   }
 }
 
