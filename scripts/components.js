@@ -39,10 +39,10 @@ const renderMainComponent = () => {
             </div>
         </div>
         <div>
-            <input type="checkbox" id="cartoons" name="type" value="cartoons">
-            <label for="cartoons">Cartoons</label>
+            <input type="checkbox" id="cartoons" name="type" value="cartoons" disabled>
+            <label class="disab-check" for="cartoons">Cartoons</label>
         </div>
-        <div>
+        <div class='release'>
             <label for="year">Release Year:</label>
             <input type="number" id="year" placeholder="2023" min="1900" max="2023">
         </div>
@@ -68,18 +68,33 @@ const renderMediaInfo = ({
   actors,
   plot,
   poster,
+  imdbRating,
+  genre,
+  director,
+  runTime,
 }) => {
   document.getElementById("app").innerHTML = `
     <head>Header</head>
-    <main>
-        <img src="${poster}" alt="poster for ${title}">
+   <main>
+   <div class="wrapper">
+      <div class="image-block">
+        <img  class="poster" src="${poster}" alt="poster for ${title}" />
+        <p class="description__name">IMDb: ${imdbRating} ⭐️</p>
+      </div>
+      <div class="description">
         <h1>${title}</h1>
-        <p>${released}</p>
-        <p>${country}</p>
-        <p>${actors}</p>
-        <p>Description: ${plot}</p>
+        <p class="description__name">Title: <span class="description__text">${title}</span></p>
+        <p class="description__name">Released: <span class="description__text">${released}</span></p>
+        <p class="description__name">Country: <span class="description__text">${country}</span></p>
+        <p class="description__name">Genre: <span class="description__text">${genre}</span></p>
+        <p class="description__name">Director: <span class="description__text">${director}</span></p>
+        <p class="description__name">Actors: <span class="description__text">${actors}</span></p>
+        <p class="description__name">Duration: <span class="description__text">${runTime}</span></p>
+        <p class="description__name">Description: <span class="description__text">${plot}</span></p>
+      </div>
+      </div>
     </main>
-    <button id="back-to-home">Back</button>
+    <button class="back-button" id="back-to-home">Go Back</button>
 `;
 };
 

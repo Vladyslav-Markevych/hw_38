@@ -132,8 +132,23 @@ async function renderMediaPage() {
       Actors: actors,
       Plot: plot,
       Poster: poster,
+      imdbRating: imdbRating,
+      Genre: genre,
+      Director: director,
+      Runtime: runTime,
     } = response;
-    renderMediaInfo({ title, released, country, actors, plot, poster });
+    renderMediaInfo({
+      title,
+      released,
+      country,
+      actors,
+      plot,
+      poster,
+      imdbRating,
+      genre,
+      director,
+      runTime,
+    });
 
     document
       .getElementById("back-to-home")
