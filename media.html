@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./mediaStyle.css" />
+    <title>Media</title>
+  </head>
+  <body>
+    <head>
+      Header
+    </head>
+    <main>
+      <div class="wrapper">
+        <div class="image-block">
+          <img class="poster" src="${poster}" alt="poster for ${title}" />
+          <p class="description__name">IMDb: ${imdbRating} ⭐️</p>
+        </div>
+        <div class="description">
+          <h1>${title}</h1>
+          <p class="description__name">
+            Title: <span class="description__text">${title}</span>
+          </p>
+          <p class="description__name">
+            Released: <span class="description__text">${released}</span>
+          </p>
+          <p class="description__name">
+            Country: <span class="description__text">${country}</span>
+          </p>
+          <p class="description__name">
+            Genre: <span class="description__text">${genre}</span>
+          </p>
+          <p class="description__name">
+            Director: <span class="description__text">${director}</span>
+          </p>
+          <p class="description__name">
+            Actors: <span class="description__text">${actors}</span>
+          </p>
+          <p class="description__name">
+            Duration: <span class="description__text">${runTime}</span>
+          </p>
+          <p class="description__name">
+            Description: <span class="description__text">${plot}</span>
+          </p>
+        </div>
+      </div>
+    </main>
+    <button class="back-button" id="back-to-home">Go Back</button>
+  </body>
+</html>
